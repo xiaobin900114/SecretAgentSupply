@@ -2,6 +2,7 @@ html {
   font-size: 18px;
   font-family: helvetica;
   color: white;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,15 +23,12 @@ h2 {
 
 .container {
   width: 960px;
+  margin: 0 auto;
 }
 
 /* Header */
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   background-color: black;
 }
@@ -42,8 +40,7 @@ header .logo {
 
 header img {
   height: 1.5rem;
-  width: auto;
-  margin: auto 0.5rem;
+  margin-right: 0.5rem;
 }
 
 header .logo span {
@@ -53,21 +50,19 @@ header .logo span {
 /* Main-banner */
 
 .main-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-image: url(../images/moto.jpeg);
   background-size: cover;
+  background-position: center;
   height: 25rem;
   width: 100%;
 }
 
-.main-banner .container .title {
+.title {
+  position: relative;
+  top: 9rem;
   width: 20rem;
   height: auto;
   background-color: black;
-  top: 9rem;
   padding: 2rem 3rem;
 }
 
@@ -79,23 +74,74 @@ header .logo span {
   padding: 0.25rem;
 }
 
+@media only screen and (max-width: 470px) {
+
+  .container {
+    width: 100%;
+  }
+  .main-banner {
+    height: 15rem;
+  }
+
+  .main-banner .container .title {
+    top: 10rem;
+    padding: 1rem 2rem;
+    width: 100%;
+
+  }
+
+  .main-banner h2 {
+    font-size: 0.77rem;
+  }
+
+  .main-banner h1 {
+    font-size: 1rem;
+  }
+
+}
+
 /* nav */
 
 nav {
   background-color: firebrick;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.nav {
+nav div {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0.75rem 0;
+  padding: 0.75rem 0;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .container {
+    width: 100%;
+  }
+
+  nav .nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    text-align: center;
+  }
 }
 
 /* Main */
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .product-grid {
   width: 100%;
@@ -114,10 +160,17 @@ nav {
   align-items: center;
 }
 
-.product img {
+.item {
+  display: flex;
+  align-items: center;
   height: 9rem;
-  width: auto;
-  margin: 2rem auto;
+  width: 9rem;
+  margin: 2rem;
+}
+
+.item img {
+  max-width: 100%;
+
 }
 
 .product h3 {
@@ -141,22 +194,52 @@ nav {
   padding: 0.5rem 0;
 }
 
+@media only screen and (max-width: 1024px) {
+  .glasses {
+    display: none;
+  }
+
+  .product {
+    width: 47%;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .glasses {
+    display: none;
+  }
+
+  .watch {
+    display: none;
+  }
+
+  .product {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info {
+    width: 90%;
+  }
+}
+
 /* Footer */
 
 footer {
-  width: 100%;
-  height: 5rem;
   background-color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
-  top: 4rem;
+  padding: 5rem 0;
+  margin-top: 4rem;
 }
 
-footer .container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  text-align: left;
+
+@media only screen and (max-width: 470px) {
+  footer .container {
+    text-align: center;
+  }
+
 }
